@@ -32,7 +32,17 @@ $(document).ready(function(){
     };
     $("i.fa-arrow-circle-right").click(scroll_right);
     //Bonus: selecting images from dots:
-    
+    $(".dots-container i").click(function(){
+        var clicked_index = $(".dots-container i").index(this);
+        var current_img = $(".img-container img.active");
+        var current_dot = $("i.active");
+        var clicked_dot = $(".dots-container i").eq(parseInt(clicked_index));
+        var clicked_img = $(".img-container img").eq(parseInt(clicked_index));
+        current_img.removeClass("active");
+        current_dot.removeClass("active");
+        clicked_img.addClass("active");
+        clicked_dot.addClass("active");
+    });
     // Automatic scroll every 3s:
     var clock = setInterval(scroll_right, 3000);
     scroll_right();
